@@ -1,0 +1,26 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  height: 300px;
+  width: 175px;
+  border: 2px solid pink;
+  border-radius: 15%;
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    & a {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+}
