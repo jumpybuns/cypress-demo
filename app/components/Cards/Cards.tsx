@@ -10,14 +10,17 @@ type AllPokemon = {
 };
 
 export default function Cards() {
-  const [data, setData] = useState<AllPokemon[]>([]); // Create a state variable to store the array of pokemon
+  const [allPokemon, setAllPokemon] = useState<AllPokemon[]>([]);
+  const [showCards, setShowCards] = useState(false);
 
   const handleClick = async () => {
+    if (allPokemon.length > 0 && showCards === true) return setAllPokemon([]);
     const data = await fetchAllPokemon(); // Call the fetchAllPokemon function to get the array of pokemon
-    setData(data);
+    setAllPokemon(data);
+    setShowCards(true);
   };
 
-  const cards = data.map((pokemon: AllPokemon) => {
+  const cards = allPokemon.map((pokemon: AllPokemon) => {
     return (
       <li className={styles.card} key={pokemon.name}>
         <div className={styles.dataWrapper}>
