@@ -22,7 +22,7 @@ export default function Cards() {
 
   const cards = allPokemon.map((pokemon: AllPokemon) => {
     return (
-      <li className={styles.card} key={pokemon.name}>
+      <li className={styles.card} key={pokemon.name} data-test='card'>
         <div className={styles.dataWrapper}>
           <a href={pokemon.url}>{pokemon.name}</a>
         </div>
@@ -31,13 +31,13 @@ export default function Cards() {
   });
 
   return (
-    <div className={styles.container}>
-      <div className={styles.btnWrapper}>
+    <div className={styles.container} data-test-id='card-container'>
+      <div className={styles.btnWrapper} data-test-id='card-btn'>
         <button type='submit' onClick={handleClick}>
           <span>Get Cards</span>
         </button>
       </div>
-      <ul className={styles.cardContainer}>{cards}</ul>
+      <ul className={styles.cardContainer} data-test="cards">{cards}</ul>
     </div>
   );
 }
