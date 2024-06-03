@@ -1,15 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .btnWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    border: 2px solid pink;
+    border-radius: 10px;
+    max-width: fit-content;
+
+    &:hover {
+      background-color: pink;
+      color: black;
+    }
+
+    & button {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  position: relative;
+  margin-top: 2rem;
 }
 
 .card {
-  height: 300px;
-  width: 175px;
+  min-height: 200px;
   border: 2px solid pink;
   border-radius: 15%;
+  min-width: 200px;
 
   & div {
     display: flex;

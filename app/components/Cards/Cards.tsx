@@ -29,9 +29,9 @@ export default function Cards() {
 
   return (
     <div className={styles.container}>
-      <div className='btn-wrapper'>
+      <div className={styles.btnWrapper}>
         <button type='submit' onClick={handleClick}>
-          Get Cards
+          <span>Get Cards</span>
         </button>
       </div>
       <ul className={styles.cardContainer}>{cards}</ul>
