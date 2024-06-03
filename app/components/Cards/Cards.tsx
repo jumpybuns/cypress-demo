@@ -1,4 +1,7 @@
+"use client";
+
 import { fetchAllPokemon } from "../../../lib/fetch/allPokemon";
+import { useState } from "react";
 import styles from "../../styles/Cards.module.css";
 
 type AllPokemon = {
@@ -6,8 +9,13 @@ type AllPokemon = {
   url: string;
 };
 
-export default async function Cards() {
-  const data = await fetchAllPokemon(); // Call the fetchAllPokemon function to get the array of pokemon
+export default function Cards() {
+  const [data, setData] = useState<AllPokemon[]>([]); // Create a state variable to store the array of pokemon
+
+  const handleClick = async () => {
+    const data = await fetchAllPokemon(); // Call the fetchAllPokemon function to get the array of pokemon
+    setData(data);
+  };
 
   const cards = data.map((pokemon: AllPokemon) => {
     return (
@@ -21,6 +29,11 @@ export default async function Cards() {
 
   return (
     <div className={styles.container}>
+      <div className='btn-wrapper'>
+        <button type='submit' onClick={handleClick}>
+          Get Cards
+        </button>
+      </div>
       <ul className={styles.cardContainer}>{cards}</ul>
     </div>
   );
