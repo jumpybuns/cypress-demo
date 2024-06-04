@@ -4,13 +4,6 @@ describe("Home Page", () => {
     cy.get('[data-test-id="card-btn"]').should("be.visible");
   });
 
-  // it("Hover main button and bg color changes", () => {
-  //   cy.visit("http://localhost:3000");
-  //   cy.get('[data-test-id="card-btn"]')
-  //     .trigger("mouseover")
-  //     .should("have.css", "background-color", "pink");
-  // });
-
   it("Click main button and cards render in viewport", () => {
     cy.visit("http://localhost:3000");
     cy.get('[data-test-id="card-btn"]').click();
